@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request
 import requests
 import logging
@@ -9,6 +10,8 @@ logging.basicConfig(level=logging.DEBUG)
 
 API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBc9a2I57vkHjVYhJ42QkzMxZvwq0BY44k"
 
+DEFAULT_TEXT = "Please generate a full and complete story"
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -17,7 +20,7 @@ def index():
 def search():
     search_query = request.form['search_query']
     if search_query:
-        response = generate_story(search_query)
+        response = generate_story(DEFAULT_TEXT + search_query)  
         logging.debug(f"API response: {response}")
         if response and 'candidates' in response:
             story_content = extract_story_content(response)
