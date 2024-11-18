@@ -8,7 +8,7 @@ app = Flask(__name__, static_url_path='/static')
 
 logging.basicConfig(level=logging.DEBUG)
 
-API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBc9a2I57vkHjVYhJ42QkzMxZvwq0BY44k"
+API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=API_Key"
 
 DEFAULT_TEXT = "Please generate a full and complete story"
 
